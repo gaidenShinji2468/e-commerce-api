@@ -4,8 +4,11 @@
   "description": "API con funcionalidad basica para un e-commerce.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js"
+    "test": "jest --detectOpenHandles",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "migrate:reset": "node ./src/tests/testMigrate.js",
+    "pretest": "npm run migrate:reset"
   },
   "repository": {
     "type": "git",
@@ -28,5 +31,9 @@
     "nodemailer": "^6.9.1",
     "pg": "^8.10.0",
     "sequelize": "^6.29.3"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3"
   }
 }
